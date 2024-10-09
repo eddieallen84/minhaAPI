@@ -42,7 +42,7 @@ router.post("/users", (req, res) => {
 
   users.push(newUser);
 
-  const filePath = "../users.js"; 
+  const filePath = "./users.js"; 
   
   fs.writeFile(
     filePath,
