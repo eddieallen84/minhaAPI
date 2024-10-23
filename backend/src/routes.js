@@ -1,14 +1,14 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const users = require('../users');
-const fs = require('fs');
+const users = require("../users");
+const fs = require("fs");
 
 //ROTAS GET
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   res.send("REQUISIÇÃO OK");
 });
 
-router.get('/users', (req, res) => {
+router.get("/users", (req, res) => {
   res.send(users);
 });
 
@@ -42,8 +42,8 @@ router.post("/users", (req, res) => {
 
   users.push(newUser);
 
-  const filePath = "./users.js"; 
-  
+  const filePath = "./users.js";
+
   fs.writeFile(
     filePath,
     `let users = ${JSON.stringify(users, null, 2)};\n\nmodule.exports = users;`,
@@ -56,9 +56,8 @@ router.post("/users", (req, res) => {
   );
 });
 
-
 // ROTA PUT - Atualizar um usuário
-router.put('/users/:id', (req, res) => {
+router.put("/users/:id", (req, res) => {
   const { id } = req.params;
   const { nome, email, senha } = req.body;
 
@@ -87,7 +86,7 @@ router.put('/users/:id', (req, res) => {
 });
 
 // ROTA DELETE - Excluir um usuário
-router.delete('/users/:id', (req, res) => {
+router.delete("/users/:id", (req, res) => {
   const { id } = req.params;
 
   const userIndex = users.findIndex((user) => user.id == id);
@@ -110,7 +109,5 @@ router.delete('/users/:id', (req, res) => {
     }
   );
 });
-
-
 
 module.exports = router;
