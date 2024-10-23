@@ -33,7 +33,7 @@ let users = [
     "id": 6,
     "nome": "Ayton Senna",
     "email": "ayrton@senna.com",
-    "senha": "vaibrasil"
+    "senha": "senhaalterada"
   },
   {
     "id": 7,
